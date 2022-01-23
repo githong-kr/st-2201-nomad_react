@@ -1,30 +1,23 @@
-import Button from './Button';
 import { useState, useEffect } from 'react';
 
+function Hello() {
+  useEffect(() => {
+    console.log(`Hello Component Created!`);
+    return () => {
+      console.log(`Hello Component Destroyed!`);
+    };
+  }, []);
+  return <h1>Hello</h1>;
+}
+
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [keyword, setKeyword] = useState('');
-  const onChange = (event) => setKeyword(event.target.value);
-  const onClick = () => setCounter((prev) => prev + 1);
-
-  console.log(`i run all the time`);
-
-  useEffect(() => console.log(`i run only once`), []);
-
-  useEffect(() => console.log(`i run when counter changed`), [counter]);
-
-  useEffect(() => console.log(`i run when keyword changed`), [keyword]);
-
-  useEffect(
-    () => console.log(`i run when counter or keyword changed`),
-    [counter, keyword]
-  );
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing((prev) => !prev);
 
   return (
     <div>
-      <input onChange={onChange} type="text" value={keyword}></input>
-      <h1>Hello : {counter}</h1>
-      <Button text={`Click`} onClick={onClick} />
+      {showing === true ? <Hello /> : null}
+      <button onClick={onClick}>{showing ? 'HIDE' : 'SHOW'}</button>
     </div>
   );
 }
