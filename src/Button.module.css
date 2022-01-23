@@ -1,4 +1,4 @@
-button {
-  font-size: 48px;
+.btn {
   background-color: tomato;
+  font-size: 48px;
 }
