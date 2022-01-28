@@ -16,7 +16,7 @@ const Details = () => {
       setLoading(false);
     };
     getDetail();
-  }, []);
+  });
 
   return (
     <div>

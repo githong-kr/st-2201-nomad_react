@@ -4,10 +4,10 @@ import Details from './routes/Details';
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename={`${process.env.PUBLIC_URL}`}>
       <Routes>
         <Route path="movie/:id" element={<Details />} />
-        <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
+        <Route path={`/`} element={<Home />} />
       </Routes>
     </Router>
   );
